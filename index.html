@@ -1,0 +1,143 @@
+<!-- 
+Mariah Balandran
+mbalandr@ucsc.edu
+
+Notes to Grader:
+I did the assignment completely alone, but I did use the book for the starting code and AI to teach me how some of the javascript functions work. Also, I styled the page because web development is my hobby, if I shouldn't style my assignments let me know.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Draw a Vector</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #b7b5e4; 
+            color: #322e18; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #c9d3ff; 
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            text-align: center;
+        }
+
+        canvas {
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 3px 2px #9f93ec;
+        }
+
+        input[type="number"], select {
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #cfccd6;
+            border-radius: 5px;
+            text-align: center;
+            background-color: white;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: #9f93ec; 
+            outline: none;
+            font-size: 18px;
+        }
+
+        input[type="button"] {
+            background-color: #9f93ec;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            transition: background-color 0.3s ease;
+            width: 400px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #9f93ec;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        h3 {
+            margin: 0px;
+        }
+
+        #sclr {
+            width: 40px; 
+        }
+
+        #op {
+            width: 140px; 
+        }
+
+        #x1, #x2, #y1, #y2 {
+            width: 140px;
+        }
+
+        ::placeholder {
+            color: #bbafaf;
+        }
+
+    </style>
+</head>
+<body onload="main()">
+    <div class="container">
+        <h1>Vector Operations</h1>
+
+        <canvas id="example" width="400" height="400"></canvas>
+
+        <h3> v1 = (
+            <input id="x1" type="number" placeholder="0" /> , 
+            <input id="y1" type="number" placeholder="0" /> )
+        </h3>
+        <h3> v2 = (
+            <input id="x2" type="number" placeholder="0" /> , 
+            <input id="y2" type="number" placeholder="0" /> )
+        </h3>
+
+        <label for="op">Operation:</label>
+        <select id="op">
+            <option value="add" selected>Add</option>
+            <option value="sub">Subtract</option>
+            <option value="mul">Multiply</option>
+            <option value="div">Divide</option>
+            <option value="mag">Magnitude</option>
+            <option value="norm">Normalize</option>
+            <option value="angbtw">Angle Between</option>
+            <option value="area">Area</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="sclr">Scalar:</label>
+        <input id="sclr" type="number" placeholder="1" />
+        <br>
+        <input type="button" value="Draw" onclick="handleDrawEvent()"/>
+    </div>
+
+    <script src="asg0.js"></script>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+    <script>console.log('Library is loaded and ready to use');</script>
+</body>
+</html>
